@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Crop Yield Prediction</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1 data-i18n="title">AI-Powered Crop Yield Prediction & Optimization</h1>
+    <div class="lang">
+      <label for="lang-select" data-i18n="language">Language</label>
+      <select id="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 data-i18n="inputSection">Input Details</h2>
+      <form id="predict-form">
+        <div class="grid">
+          <div class="field">
+            <label for="crop" data-i18n="crop">Crop</label>
+            <select id="crop" required>
+              <option value="wheat">Wheat</option>
+              <option value="rice">Rice</option>
+              <option value="maize">Maize</option>
+              <option value="cotton">Cotton</option>
+              <option value="soybean">Soybean</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="region" data-i18n="region">Region</label>
+            <input id="region" type="text" placeholder="e.g. Maharashtra" required />
+          </div>
+          <div class="field">
+            <label for="sowingDate" data-i18n="sowingDate">Sowing Date</label>
+            <input id="sowingDate" type="date" required />
+          </div>
+          <div class="field">
+            <label for="area" data-i18n="area">Area (hectares)</label>
+            <input id="area" type="number" step="0.01" min="0.01" required />
+          </div>
+        </div>
+
+        <h3 data-i18n="soilMetrics">Soil Metrics</h3>
+        <div class="grid">
+          <div class="field">
+            <label for="nitrogen">Nitrogen (0-100)</label>
+            <input id="nitrogen" type="number" min="0" max="100" required />
+          </div>
+          <div class="field">
+            <label for="phosphorus">Phosphorus (0-100)</label>
+            <input id="phosphorus" type="number" min="0" max="100" required />
+          </div>
+          <div class="field">
+            <label for="potassium">Potassium (0-100)</label>
+            <input id="potassium" type="number" min="0" max="100" required />
+          </div>
+          <div class="field">
+            <label for="ph">pH (0-14)</label>
+            <input id="ph" type="number" min="0" max="14" step="0.1" required />
+          </div>
+          <div class="field">
+            <label for="organicMatter" data-i18n="organicMatter">Organic Matter (%)</label>
+            <input id="organicMatter" type="number" min="0" max="20" step="0.1" required />
+          </div>
+        </div>
+
+        <h3 data-i18n="location">Location</h3>
+        <div class="grid">
+          <div class="field">
+            <label for="lat">Latitude</label>
+            <input id="lat" type="number" step="0.0001" required />
+          </div>
+          <div class="field">
+            <label for="lon">Longitude</label>
+            <input id="lon" type="number" step="0.0001" required />
+          </div>
+        </div>
+
+        <button class="btn" type="submit" id="submit-btn" data-i18n="predict">Predict</button>
+      </form>
+    </section>
+
+    <section class="card" id="results" hidden>
+      <h2 data-i18n="results">Results</h2>
+      <div id="prediction"></div>
+      <div id="weather"></div>
+      <div id="recs"></div>
+    </section>
+  </main>
+
+  <footer class="container muted">
+    <span data-i18n="footer">This tool provides heuristic guidance. Consult local experts for decisions.</span>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
